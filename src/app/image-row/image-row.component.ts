@@ -1,4 +1,10 @@
-import { Component, OnInit, AfterViewInit, OnDestroy } from "@angular/core";
+import {
+  Component,
+  OnInit,
+  AfterViewInit,
+  OnDestroy,
+  ElementRef
+} from "@angular/core";
 import {
   trigger,
   state,
@@ -34,9 +40,7 @@ import {
 export class ImageRowComponent implements OnInit, AfterViewInit, OnDestroy {
   activated = false;
   data: any = null;
-  contents: [
-    { image?: string; video?: string; title: string; subtitle: string }
-  ] = [
+  contents: any = [
     {
       image: "../../assets/images/image1.png",
       title: "Amet Condimentum",
@@ -53,7 +57,7 @@ export class ImageRowComponent implements OnInit, AfterViewInit, OnDestroy {
       subtitle: "Consectetur"
     },
     {
-      image: "../../assets/images/image4.png",
+      video: "https://www.w3schools.com/html/mov_bbb.mp4",
       title: "Ridiculus Ornare",
       subtitle: "Ullamcorper"
     }
@@ -65,9 +69,9 @@ export class ImageRowComponent implements OnInit, AfterViewInit, OnDestroy {
 
   ngAfterViewInit() {
     const contentBlocks = document.querySelectorAll(".image-container");
-    contentBlocks.forEach(block => {
+    contentBlocks.forEach((block: HTMLElement) => {
       block.addEventListener("mouseover", () => {
-        contentBlocks.forEach(bl => {
+        contentBlocks.forEach((bl: HTMLElement) => {
           bl.style["z-index"] = "15";
         });
         block.style["z-index"] = "20";
@@ -88,9 +92,9 @@ export class ImageRowComponent implements OnInit, AfterViewInit, OnDestroy {
 
   ngOnDestroy() {
     const contentBlocks = document.querySelectorAll(".image-container");
-    contentBlocks.forEach(block => {
+    contentBlocks.forEach((block: HTMLElement) => {
       block.removeEventListener("mouseover", () => {
-        contentBlocks.forEach(bl => {
+        contentBlocks.forEach((bl: HTMLElement) => {
           bl.style["z-index"] = "15";
         });
         block.style["z-index"] = "20";

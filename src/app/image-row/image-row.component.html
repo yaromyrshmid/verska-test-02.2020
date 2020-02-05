@@ -5,14 +5,10 @@
       *ngFor="let content of contents"
       (click)="onActivate(content)"
     >
-      <img
-        [src]="content.image"
-        alt="article cover"
-        *ngIf="content.image; else video"
-      />
-      <ng-template #video *ngIf="content.video">
-        <iframe width="420" height="315" [src]="content.video"> </iframe>
-      </ng-template>
+      <img [src]="content.image" alt="article cover" *ngIf="content.image" />
+      <video height="100%" *ngIf="content.video" autoplay>
+        <source [src]="content.video" type="video/mp4" />
+      </video>
       <div class="title">
         <h2>
           {{ content.title }}

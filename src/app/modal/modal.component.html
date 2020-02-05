@@ -2,6 +2,7 @@
   <div class="modal">
     <div class="data">
       <div>
+        <!-- {{ data.video }} -->
         <h2>{{ data ? data.title : null }}</h2>
         <p>{{ data ? data.subtitle : null }}</p>
         <p class="plaintext" *ngIf="plaintext">{{ plaintext }}</p>
@@ -13,6 +14,9 @@
     </div>
     <div class="image-wrapper" *ngIf="data && data.image">
       <img [src]="data.image" />
+      <video height="100%" *ngIf="data && data.video" autoplay>
+        <source src="{{ data.video }}" type="video/mp4" />
+      </video>
     </div>
   </div>
 </div>
