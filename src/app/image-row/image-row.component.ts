@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, AfterViewInit, OnDestroy } from "@angular/core";
 import {
   trigger,
   state,
@@ -31,7 +31,7 @@ import {
     ])
   ]
 })
-export class ImageRowComponent implements OnInit {
+export class ImageRowComponent implements OnInit, AfterViewInit, OnDestroy {
   activated = false;
   data: any = null;
   contents: [
@@ -63,12 +63,38 @@ export class ImageRowComponent implements OnInit {
 
   ngOnInit() {}
 
+  ngAfterViewInit() {
+    const contentBlocks = document.querySelectorAll(".image-container");
+    contentBlocks.forEach(block => {
+      block.addEventListener("mouseover", () => {
+        contentBlocks.forEach(bl => {
+          bl.style["z-index"] = "15";
+        });
+        block.style["z-index"] = "20";
+      });
+    });
+  }
+
   onActivate(image: any) {
     this.activated = true;
     this.data = image;
+    document.querySelector("body").style["overflow"] = "hidden";
   }
 
   onDeactivate() {
     this.activated = false;
+    document.querySelector("body").style["overflow"] = "auto";
+  }
+
+  ngOnDestroy() {
+    const contentBlocks = document.querySelectorAll(".image-container");
+    contentBlocks.forEach(block => {
+      block.removeEventListener("mouseover", () => {
+        contentBlocks.forEach(bl => {
+          bl.style["z-index"] = "15";
+        });
+        block.style["z-index"] = "20";
+      });
+    });
   }
 }
