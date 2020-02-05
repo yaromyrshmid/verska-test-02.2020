@@ -1,0 +1,18 @@
+<div class="backdrop">
+  <div class="modal">
+    <div class="data">
+      <div>
+        <h2>{{ data ? data.title : null }}</h2>
+        <p>{{ data ? data.subtitle : null }}</p>
+        <p class="plaintext" *ngIf="plaintext">{{ plaintext }}</p>
+        <div class="spinner" *ngIf="!plaintext">
+          <div class="cube1"></div>
+          <div class="cube2"></div>
+        </div>
+      </div>
+    </div>
+    <div class="image-wrapper" *ngIf="data && data.image">
+      <img [src]="data.image" />
+    </div>
+  </div>
+</div>

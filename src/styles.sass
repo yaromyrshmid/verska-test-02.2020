@@ -1,1 +1,38 @@
-/* You can add global styles to this file, and also import other style files */
+@import './app/mixins'
+
+*
+    box-sizing: border-box
+
+body
+    margin: 0
+    font-family: 'Montserrat', sans-serif
+    --main-white: #ffffff
+    --main-tomato: #da7074
+    --main-dark: #151515
+    --secondary-dark: #565656
+    --main-black: #000000
+
+a
+    text-decoration: none
+
+input:focus, textarea:focus, select:focus
+    outline: none
+
+::placeholder
+    color: var(--main-white)
+    opacity: 1
+
+:-ms-input-placeholder
+    color: var(--main-white)
+
+::-ms-input-placeholder
+    color: var(--main-white)
+
+// Hiding on different screens
+.md-none
+    @include md
+        display: none !important
+
+.md-display
+    @media (max-width: 767px)
+        display: none !important

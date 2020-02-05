@@ -1,0 +1,27 @@
+<div class="image-row-container">
+  <div class="image-row">
+    <div
+      class="image-container"
+      *ngFor="let image of images"
+      (click)="onActivate(image)"
+    >
+      <img [src]="image.image" alt="article cover" />
+      <div class="title">
+        <h2>
+          {{ image.title }}
+        </h2>
+        <p>
+          {{ image.subtitle }}
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div
+    class="modal-container"
+    [@openCloseModal]="activated ? 'open' : 'closed'"
+    (click)="onDeactivate()"
+  >
+    <app-modal [activated]="activated" [data]="data"></app-modal>
+  </div>
+</div>

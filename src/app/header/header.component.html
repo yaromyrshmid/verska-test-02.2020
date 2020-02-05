@@ -1,0 +1,68 @@
+<div class="header-container" #header_container>
+  <div class="header" #header>
+    <div class="large-navigation">
+      <div class="brand">
+        <a href="#">
+          <div class="logo"></div>
+        </a>
+      </div>
+
+      <div class="navigation md-display">
+        <a href="#" class="nav-link">home</a>
+        <a href="#" class="nav-link">about</a>
+        <a href="#" class="nav-link">contact</a>
+      </div>
+
+      <div class="controls">
+        <div class="search md-display">
+          <div
+            class="searchBar"
+            [@openCloseSearch]="showSearchBar ? 'open' : 'closed'"
+          >
+            <input type="text" placeholder="Search..." />
+            <span class="header-icon" (click)="onToggleSearchBar()">
+              <fa-icon [icon]="faTimes" size="lg"></fa-icon>
+            </span>
+          </div>
+          <span
+            class="header-icon"
+            (click)="!showSearchBar ? onToggleSearchBar() : null"
+          >
+            <fa-icon [icon]="faSearch" size="lg"></fa-icon>
+          </span>
+        </div>
+
+        <a class="md-none" (click)="toggleSmallNavbar()">
+          <div class="hamburger">
+            <div class="hamburger-line"></div>
+            <div class="hamburger-line hamburger-line-middle"></div>
+            <div class="hamburger-line"></div>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <div *ngIf="showSmallNavbar" class="small-navigation md-none">
+      <a href="#" class="nav-link">home</a>
+      <a href="#" class="nav-link">about</a>
+      <a href="#" class="nav-link">contact</a>
+      <div class="search">
+        <div
+          class="searchBar"
+          [@openCloseSearch]="showSearchBar ? 'open' : 'closed'"
+        >
+          <input type="text" placeholder="Search..." />
+          <span class="header-icon" (click)="onToggleSearchBar()">
+            <fa-icon [icon]="faTimes" size="lg"></fa-icon>
+          </span>
+        </div>
+        <span
+          class="header-icon"
+          (click)="!showSearchBar ? onToggleSearchBar() : null"
+        >
+          <fa-icon [icon]="faSearch" size="lg"></fa-icon>
+        </span>
+      </div>
+    </div>
+  </div>
+</div>

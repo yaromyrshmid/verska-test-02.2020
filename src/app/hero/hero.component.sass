@@ -1,0 +1,106 @@
+@import '../mixins'
+    
+.hero-container
+    height: 150vh
+    min-height: 1300px
+    width: 100%
+    padding: 36vh 0 0 0
+
+    background-color: #000000
+    background-image: url("../../assets/images/hero-background.png")
+    background-position: center
+    background-repeat: no-repeat
+    background-size: cover
+
+    display: flex
+    flex-direction: column
+    align-items: center
+
+h1 
+    text-transform: capitalize
+    text-align: center
+    color: var(--main-white)
+    font-size: 5.75rem
+    margin: 0
+    @include font-playfair
+    @include md
+        font-size: 8.75rem
+
+p
+    width: 300px
+    color: var(--main-white)
+    font-size: .875rem
+    font-weight: lighter
+    line-height: 2rem
+    text-align: center
+    @include sm
+        width: 375px
+
+.button-wrapper
+    margin-top: 70px
+    position: relative
+    width: 300px
+    display: flex
+    justify-content: space-around
+    @include sm
+        margin-top: 90px
+        width: 450px
+
+button
+    width: 163px
+    height: 46px
+    z-index: 10
+
+    background-color: var(--main-tomato)
+    border-radius: 23px
+    border: none
+
+    text-transform: uppercase
+    font-size: .875rem
+    font-weight: bold
+    color: var(--main-white)
+
+.button-wrapper hr 
+    position: absolute
+    width: 100%
+    top: 15px
+    z-index: 1
+    border: .5px solid var(--main-tomato)
+
+.vertical-lines
+    position: relative
+    margin-top: 70px
+
+.line-basis
+    height: 210px
+    width: 6px
+    margin-bottom: 54px
+
+.line-basis::before
+    content: ""
+    height: 210px    
+    border-right: 1px solid var(--main-tomato)
+    position: absolute
+
+.line-basis::after
+    content: ""
+    height: 210px
+    border-right: 1px solid var(--main-tomato)
+    position: absolute
+    left: 6px
+    top: 20px
+
+.play-button    
+    height: 80px
+    width: 80px
+    border: 2px solid var(--main-white)
+    border-radius: 50%
+
+    display: flex
+    justify-content: space-around
+    align-items: center
+
+    transition: transform .5s   
+
+.play-button:hover
+    transform: rotate(90deg)

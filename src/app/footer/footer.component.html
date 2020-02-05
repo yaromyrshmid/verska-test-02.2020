@@ -1,0 +1,22 @@
+<div class="footer-container">
+  <div class="footer-wrapper">
+    <div class="footer-col" *ngFor="let chapter of site_map">
+      <h3>
+        {{ chapter.title }}
+      </h3>
+      <a *ngFor="let link of chapter.links" [href]="link.link">{{
+        link.link_title
+      }}</a>
+    </div>
+    <div class="footer-col">
+      <h3>
+        {{ mission.title }}
+      </h3>
+      <p>{{ mission.text }}</p>
+    </div>
+  </div>
+</div>
+
+<div class="copyright">
+  <p>Copyright © {{ year }} @samiralley</p>
+</div>
