@@ -67,7 +67,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
       .querySelector(".footer-container")
       .getBoundingClientRect().top;
     // Changing height or padding of header if scrolled over 100px from top
-    if (header_y_position < -100) {
+    if (header_y_position < -70) {
       // Changing color of header if over footer
       if (header_height > footer_y_position) {
         this.header.nativeElement.className = "header scrolled dark";

@@ -1,10 +1,11 @@
 @import '../mixins'
     
 .hero-container
-    height: 150vh
-    min-height: 1300px
+    height: 100vh
+    min-height: 700px
     width: 100%
-    padding: 36vh 0 0 0
+    
+    padding: 20vh 0 0 0
 
     background-color: #000000
     background-image: url("../../assets/images/hero-background.png")
@@ -16,34 +17,37 @@
     flex-direction: column
     align-items: center
 
+    @include md
+        padding: 20vmin 0 0 0
+
 h1 
     text-transform: capitalize
     text-align: center
     color: var(--main-white)
-    font-size: 5.75rem
+    font-size: 16vmin
     margin: 0
     @include font-playfair
-    @include md
-        font-size: 8.75rem
+        
 
 p
-    width: 300px
+    width: 90%
     color: var(--main-white)
     font-size: .875rem
     font-weight: lighter
     line-height: 2rem
     text-align: center
     @include sm
-        width: 375px
+        width: 50vw
+    @include lg
+        width: 600px
 
 .button-wrapper
-    margin-top: 70px
+    margin-top: 15px
     position: relative
     width: 300px
     display: flex
     justify-content: space-around
     @include sm
-        margin-top: 90px
         width: 450px
 
 button
@@ -60,6 +64,9 @@ button
     font-weight: bold
     color: var(--main-white)
 
+button:hover
+    cursor: pointer    
+
 .button-wrapper hr 
     position: absolute
     width: 100%
@@ -69,22 +76,23 @@ button
 
 .vertical-lines
     position: relative
-    margin-top: 70px
+    margin-top: 4vh
+    margin-bottom: 4vh
+    height: 20%
 
 .line-basis
-    height: 210px
+    height: 100%
     width: 6px
-    margin-bottom: 54px
 
 .line-basis::before
     content: ""
-    height: 210px    
+    height: 100%    
     border-right: 1px solid var(--main-tomato)
     position: absolute
 
 .line-basis::after
     content: ""
-    height: 210px
+    height: 100%    
     border-right: 1px solid var(--main-tomato)
     position: absolute
     left: 6px
@@ -93,6 +101,7 @@ button
 .play-button    
     height: 80px
     width: 80px
+    margin-top: 3vh
     border: 2px solid var(--main-white)
     border-radius: 50%
 
@@ -104,3 +113,4 @@ button
 
 .play-button:hover
     transform: rotate(90deg)
+    cursor: pointer

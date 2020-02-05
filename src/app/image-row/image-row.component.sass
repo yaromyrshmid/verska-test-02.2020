@@ -21,13 +21,15 @@
     transition: transform 1s
     @include lg
         margin-top: 0px
-
+    
 img
     width: 100%
+    vertical-align: top
 
 .image-container:hover
     transform: scale(1.2)
     z-index: 10
+    cursor: pointer
 
 .image-container:hover::after
     content: ''
