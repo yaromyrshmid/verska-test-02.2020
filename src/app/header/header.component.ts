@@ -70,7 +70,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
     if (header_y_position < -70) {
       // Changing color of header if over footer
       if (header_height > footer_y_position) {
-        this.header.nativeElement.className = "header scrolled dark";
+        this.header.nativeElement.className = "header scrolled";
       } else {
         this.header.nativeElement.className = "header scrolled";
       }

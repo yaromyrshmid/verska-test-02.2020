@@ -26,12 +26,7 @@
         height: 174px
         padding: 0
         display: block
-
-    @include lg
-        width: 768px
-
-    @include xl
-        width: 1024px
+        border-bottom: none
 
 .large-navigation
     width: 100%
@@ -42,17 +37,13 @@
     justify-content: space-around
     align-items: center
 
-    @include md
-        display: flex
-        flex-direction: row
-        justify-content: space-around
-        align-items: center
-
-    @include lg
-        justify-content: space-between
-
 .scrolled
     padding: 20px 0
+    background-color: rgb(218, 112, 116, 0.7)
+    border-bottom: 1px solid rgba(255, 255, 255, .24)
+
+    hr
+        display: none
 
     @include md
         padding: 0
@@ -170,3 +161,9 @@ input
     
     .nav-link:hover
         color: var(--main-tomato)
+
+hr
+    width: 75%
+    border: .5px solid var(--main-white)
+    opacity: .2
+    margin: 0 auto

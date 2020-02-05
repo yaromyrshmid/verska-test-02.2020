@@ -34,7 +34,9 @@ import {
 export class ImageRowComponent implements OnInit {
   activated = false;
   data: any = null;
-  images = [
+  contents: [
+    { image?: string; video?: string; title: string; subtitle: string }
+  ] = [
     {
       image: "../../assets/images/image1.png",
       title: "Amet Condimentum",
