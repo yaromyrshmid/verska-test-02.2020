@@ -115,13 +115,16 @@
     cursor: pointer
 
 .searchBar
-    display: inline
+    position: absolute
+    display: flex
+    right: 0
+    bottom: -24px
     height: 24px
 
 input    
     background: transparent
     color: var(--main-white)
-    width: 180px
+    width: 160px
     height: 24px
     padding: 2px 4px
 
@@ -159,6 +162,9 @@ input
     .nav-link, .search        
         margin-bottom: 8px
     
+    .search
+        position: relative
+
     .nav-link:hover
         color: var(--main-tomato)
 

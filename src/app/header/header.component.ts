@@ -17,8 +17,7 @@ import {
       state(
         "open",
         style({
-          opacity: 1,
-          width: "auto"
+          opacity: 1
         })
       ),
       state(
@@ -26,7 +25,6 @@ import {
         style({
           float: "right",
           visibility: "hidden",
-          width: "0px",
           opacity: 0
         })
       ),

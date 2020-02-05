@@ -47,24 +47,15 @@
       <a href="#" class="nav-link">about</a>
       <a href="#" class="nav-link">contact</a>
       <div class="search">
-        <div
-          class="searchBar"
-          [@openCloseSearch]="showSearchBar ? 'open' : 'closed'"
-        >
-          <input type="text" placeholder="Search..." />
-          <span class="header-icon" (click)="onToggleSearchBar()">
-            <fa-icon [icon]="faTimes" size="lg"></fa-icon>
-          </span>
-        </div>
-        <span
-          class="header-icon"
-          (click)="!showSearchBar ? onToggleSearchBar() : null"
-        >
+        <input type="text" placeholder="Search..." />
+        <span class="header-icon">
+          <fa-icon [icon]="faTimes" size="lg"></fa-icon>
+        </span>
+        <span class="header-icon">
           <fa-icon [icon]="faSearch" size="lg"></fa-icon>
         </span>
       </div>
+      <hr class="md-display" />
     </div>
-
-    <hr class="md-display" />
   </div>
 </div>
