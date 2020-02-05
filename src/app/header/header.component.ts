@@ -55,6 +55,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   headerScroll() {
+    this.showSearchBar = false;
     // Getting header position and dimensions
     const header_y_position = this.header_container.nativeElement.getBoundingClientRect()
       .y;

@@ -13,6 +13,7 @@ export class ModalComponent implements OnInit {
   constructor(private http: HttpClient) {}
 
   ngOnInit() {
+    this.plaintext = null;
     this.http.get("https://jsonplaceholder.typicode.com/posts").subscribe(
       response => {
         this.plaintext = response[0].title;
