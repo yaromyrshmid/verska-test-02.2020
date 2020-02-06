@@ -6,7 +6,7 @@
       (click)="onActivate(content)"
     >
       <img [src]="content.image" alt="article cover" *ngIf="content.image" />
-      <video height="100%" *ngIf="content.video" autoplay>
+      <video height="100%" *ngIf="content.video" autoplay="true" loop="true">
         <source [src]="content.video" type="video/mp4" />
       </video>
       <div class="title">
@@ -23,8 +23,11 @@
   <div
     class="modal-container"
     [@openCloseModal]="activated ? 'open' : 'closed'"
-    (click)="onDeactivate()"
   >
-    <app-modal [activated]="activated" [data]="data"></app-modal>
+    <app-modal
+      [activated]="activated"
+      [data]="data"
+      (closeModal)="onCloseModal($event)"
+    ></app-modal>
   </div>
 </div>

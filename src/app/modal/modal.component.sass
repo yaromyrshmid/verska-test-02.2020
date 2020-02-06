@@ -11,13 +11,21 @@
 
 .modal
     width: 80%
+    height: 90%
     background-color: var(--secondary-dark)    
     
+    position: relative
+
     display: flex
     flex-direction: column
-    justify-content: space-around
+    justify-content: center
 
     @include md
+        height: 50%
+        flex-direction: row
+    
+    @media (max-height: 700px) and (orientation: landscape)
+        height: 70%
         flex-direction: row
 
 .data    
@@ -31,33 +39,60 @@
     @include md
         width: 40%
 
+    @media (max-height: 700px) and (orientation: landscape)
+        width: 50%
+
     h2
         font-size: 1.125rem
         text-transform: uppercase
         letter-spacing: 1px
-    
+           
     p
         font-style: italic
 
-    .plaintext
-        font-style: normal
+    .plaintext        
+        // height: 20vh
+        overflow: scroll
+        
+        @include md
+            @media (orientation: portrait)
+                height: 30vh
+        p
+            font-style: normal
+            margin-top: 0
 
-.image-wrapper    
+.graphics-wrapper    
     width: 100%
     padding: 20px
+
     display: flex
     justify-content: center
     align-items: center
+    overflow: hidden
 
     @include md
         width: 40%
 
-img
-    width: 100%
+    @include lg
+        width: 50%
 
+    img
+        width: 100%
+
+    video
+        width: 100%
+
+.icon
+    font-size: 1.4rem
+    position: absolute
+    top: -40px
+    right: -40px
+    color: var(--secondary-dark)
+    padding: 0 5px
+    background-color: var(--main-tomato)
 
 .spinner 
-    margin: 100px auto
+    margin: 0 auto
     width: 40px
     height: 40px
     position: relative
@@ -72,7 +107,6 @@ img
   
     -webkit-animation: sk-cubemove 1.8s infinite ease-in-out
     animation: sk-cubemove 1.8s infinite ease-in-out
-
 
 .cube2 
     -webkit-animation-delay: -0.9s

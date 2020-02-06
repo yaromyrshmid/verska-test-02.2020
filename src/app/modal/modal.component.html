@@ -1,22 +1,26 @@
-<div class="backdrop">
-  <div class="modal">
+<div class="backdrop" (click)="onCloseModal()">
+  <div class="modal" onclick="event.stopPropagation()">
     <div class="data">
       <div>
-        <!-- {{ data.video }} -->
         <h2>{{ data ? data.title : null }}</h2>
         <p>{{ data ? data.subtitle : null }}</p>
-        <p class="plaintext" *ngIf="plaintext">{{ plaintext }}</p>
-        <div class="spinner" *ngIf="!plaintext">
-          <div class="cube1"></div>
-          <div class="cube2"></div>
+        <div class="plaintext" #plaintextContainer>
+          <p *ngIf="plaintext">{{ plaintext }}</p>
+          <div class="spinner" *ngIf="!plaintext">
+            <div class="cube1"></div>
+            <div class="cube2"></div>
+          </div>
         </div>
       </div>
     </div>
-    <div class="image-wrapper" *ngIf="data && data.image">
-      <img [src]="data.image" />
-      <video height="100%" *ngIf="data && data.video" autoplay>
-        <source src="{{ data.video }}" type="video/mp4" />
+    <div class="graphics-wrapper" *ngIf="data">
+      <img [src]="data.image" *ngIf="data.image" />
+      <video *ngIf="data.video" autoplay="true" loop="true">
+        <source [src]="data.video" type="video/mp4" />
       </video>
     </div>
+    <span class="icon" (click)="onCloseModal()">
+      <fa-icon [icon]="faTimes"></fa-icon>
+    </span>
   </div>
 </div>

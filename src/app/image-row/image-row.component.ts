@@ -3,7 +3,8 @@ import {
   OnInit,
   AfterViewInit,
   OnDestroy,
-  ElementRef
+  ElementRef,
+  Input
 } from "@angular/core";
 import {
   trigger,
@@ -12,6 +13,8 @@ import {
   transition,
   animate
 } from "@angular/animations";
+import { ModalComponent } from "../modal/modal.component";
+import { Subscription } from "rxjs";
 
 @Component({
   selector: "app-image-row",
@@ -71,11 +74,25 @@ export class ImageRowComponent implements OnInit, AfterViewInit, OnDestroy {
     const contentBlocks = document.querySelectorAll(".image-container");
     contentBlocks.forEach((block: HTMLElement) => {
       block.addEventListener("mouseover", () => {
-        contentBlocks.forEach((bl: HTMLElement) => {
-          bl.style["z-index"] = "15";
-        });
         block.style["z-index"] = "20";
       });
+    });
+
+    contentBlocks.forEach((block: HTMLElement) => {
+      block.addEventListener("mouseout", () => {
+        block.style["z-index"] = "15";
+      });
+    });
+
+    const divs = document.querySelectorAll(".image-container");
+    divs.forEach((div: HTMLElement) => {
+      const image = div.querySelector("img");
+      if (image) {
+        div.style["backgroundImage"] = `url(${image.src})`;
+        div.style["backgroundRepeat"] = "no-repeat";
+        div.style["backgroundSize"] = "cover";
+        image.style["display"] = "none";
+      }
     });
   }
 
@@ -100,5 +117,9 @@ export class ImageRowComponent implements OnInit, AfterViewInit, OnDestroy {
         block.style["z-index"] = "20";
       });
     });
+  }
+
+  onCloseModal(event) {
+    this.onDeactivate();
   }
 }
